@@ -2,12 +2,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
 
-    console.log('Pase')
-    
-    if (req.method !== "POST") {
-        console.log('Entra a no POST')
-    }
-
     const MERCADO_PAGO_ACCESS_TOKEN = process.env.MERCADO_PAGO_ACCESS_TOKEN;
 
     const body = await req.json();
