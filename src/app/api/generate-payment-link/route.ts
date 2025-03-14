@@ -33,13 +33,35 @@ export async function POST(req: Request) {
 
         console.log("Data: ", data);
 
+        try {
+            // Enviar los datos al webhook de n8n
+            // TESTING URL
+            // const n8nResponse = await fetch("https://n8n.srv749731.hstgr.cloud/webhook-test/56d6513e-cf7d-4a55-974c-bb4e3f14423a", {
+            // PRODUCTION URL
+            const n8nResponse = await fetch("https://n8n.srv749731.hstgr.cloud/webhook/56d6513e-cf7d-4a55-974c-bb4e3f14423a", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    wanumber,
+                    email,
+                    collector_id: data.collector_id,
+                }),
+            });
+            const n8nData = await n8nResponse.json();
+            console.log("n8n Response: ", n8nData);
+        } catch (e) {
+            console.log("Error al enviar los datos a n8n: ", e);
+        }
+
         if (!response.ok) {
             return NextResponse.json({ error: "Error al generar el enlace de pago" }, { status: 500 })
         }
 
-        return NextResponse.json({ init_point: data.init_point, id: data.id }, {status: 200});
+        return NextResponse.json({ init_point: data.init_point, id: data.id }, { status: 200 });
 
     } catch (error) {
-        return NextResponse.json({ error: "Error al conectar con Mercado Pago" }, {status: 200});
+        return NextResponse.json({ error: "Error al conectar con Mercado Pago" }, { status: 200 });
     }
 }

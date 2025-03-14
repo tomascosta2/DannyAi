@@ -10,6 +10,10 @@ export default function PaymentHero() {
   	const status = searchParams.get('status');
   	const wanumber = searchParams.get('wanumber'); // desde el chatbot mandar url con el parametro wanumber
 
+	if (!wanumber) {
+		window.location.href = '/';
+	}
+
 	const getPaymentLink = async () => {
 		if (!email.trim()) {
 			alert("Por favor, ingresa tu email de MercadoPago.");
