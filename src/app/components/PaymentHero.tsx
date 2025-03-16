@@ -46,7 +46,7 @@ export default function PaymentHero() {
 	};
 
 	return (
-		<section className="py-[100px] md:py-[130px] relative px-4 overflow-clip">
+		<section className="pt-[100px] pb-[110px] md:py-[130px] relative px-4 overflow-clip">
 			<div className="absolute top-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
 			<div className="relative">
 				<h1 className="text-[24px] text-[#1a1a1a] md:text-[48px] font-semibold text-center mx-auto max-w-[900px] leading-[120%]">
@@ -79,6 +79,7 @@ export default function PaymentHero() {
 					</button>
 				</div>
 			</div>
+			<img className='absolute bottom-[-10px] w-[70px] block md:hidden -right-[5px] rotate-[-15deg]' src="/images/danny.png" alt="DannyAi" />
 		</section>
 	);
 }

@@ -36,9 +36,9 @@ export async function POST(req: Request) {
         try {
             // Enviar los datos al webhook de n8n
             // TESTING URL
-            // const n8nResponse = await fetch("https://n8n.srv749731.hstgr.cloud/webhook-test/56d6513e-cf7d-4a55-974c-bb4e3f14423a", {
+            const n8nResponse = await fetch("https://n8n.srv749731.hstgr.cloud/webhook-test/56d6513e-cf7d-4a55-974c-bb4e3f14423a", {
             // PRODUCTION URL
-            const n8nResponse = await fetch("https://n8n.srv749731.hstgr.cloud/webhook/56d6513e-cf7d-4a55-974c-bb4e3f14423a", {
+            // const n8nResponse = await fetch("https://n8n.srv749731.hstgr.cloud/webhook/56d6513e-cf7d-4a55-974c-bb4e3f14423a", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
